@@ -1,0 +1,46 @@
+server:
+  port: 8081
+
+spring:
+  profiles:
+    active: local
+    include:
+      - key
+
+  batch:
+    job:
+      names: ${job.name:NONE}
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/ladbe?serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=utf8
+    username: ladbe
+    password: ladbe
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 10
+        format_sql: true
+    hibernate:
+      ddl-auto: none
+
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+
+open-api:
+  data:
+    team: https://api.sportradar.us/nba/trial/v7/en/seasons
+    players: https://api.sportradar.us/nba/trial/v7/en/seasons
+    injuries: https://api.sportradar.us/nba/trial/v7/en/league/injuries.json
