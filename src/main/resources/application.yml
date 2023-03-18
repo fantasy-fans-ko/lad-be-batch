@@ -1,4 +1,38 @@
 server:
+  port: 8081
+
+spring:
+  profiles:
+    active: test
+    include:
+      -key
+  batch:
+    job:
+      names: ${job.name:NONE}
+    jdbc:
+      initialize-schema: always
+  datasource:
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+    url: jdbc:h2:~/test
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 10
+        format_sql: true
+    hibernate:
+      ddl-auto: create
+open-api:
+  teams: https://api.sportradar.us/nba/trial/v7/en/seasons
+  players: https://api.sportradar.us/nba/trial/v7/en/seasons
+  injuries: https://api.sportradar.us/nba/trial/v7/en/league/injuries.json
+
+---
+
+server:
   port: 8082
 
 spring:
@@ -9,6 +43,8 @@ spring:
   batch:
     job:
       names: ${job.name:NONE}
+    jdbc:
+      initialize-schema: always
   datasource:
     url: jdbc:mysql://localhost:3306/ladbe?serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=utf8
     username: ladbe
