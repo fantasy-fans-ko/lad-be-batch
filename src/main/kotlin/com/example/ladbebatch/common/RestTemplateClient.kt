@@ -7,6 +7,8 @@ abstract class RestTemplateClient {
     @Autowired
     lateinit var restTemplate: RestTemplate
 
-    inline fun <reified R> getData(url: String): R =
-        restTemplate.getForObject(url, R::class.java) ?: throw RuntimeException("error")
+    inline fun <reified R> getData(url: String): R {
+        logger().info(">>>>>>>>>>>>>>>> RestTemplate API : $url <<<<<<<<<<<<<<<<<<<<<<")
+        return restTemplate.getForObject(url, R::class.java) ?: throw RuntimeException("error")
+    }
 }
