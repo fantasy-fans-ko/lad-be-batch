@@ -2,10 +2,8 @@ package com.example.ladbebatch.model
 
 import com.example.ladbebatch.model.enumeration.PlayerStatus
 import javax.persistence.Entity
-import javax.persistence.GeneratedValue
 import javax.persistence.Id
 import javax.persistence.Table
-import javax.persistence.GenerationType.IDENTITY
 import javax.persistence.Column
 import javax.persistence.EnumType.STRING
 import javax.persistence.Enumerated
@@ -16,8 +14,8 @@ import javax.persistence.JoinColumn
 @Entity(name = "players")
 @Table(name = "players")
 class Player(
-    @Id @GeneratedValue(strategy = IDENTITY)
-    val id: Long = 0L,
+    @Id @Column(name = "player_id")
+    val playerId: Long = 0L,
     @Column(length = 16)
     val name: String = "",
     @Column(length = 4)
