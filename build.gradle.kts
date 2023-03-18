@@ -31,6 +31,7 @@ dependencies {
     implementation("io.github.microutils:kotlin-logging:2.0.11")
 
     implementation("org.apache.httpcomponents:httpclient:4.5")
+    implementation("com.google.guava:guava:19.0")
 }
 
 tasks.withType<KotlinCompile> {
