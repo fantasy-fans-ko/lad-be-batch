@@ -1,17 +1,15 @@
 package com.example.ladbebatch.config
 
-import com.example.ladbebatch.model.Team
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.autoconfigure.domain.EntityScan
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories
-import org.springframework.transaction.annotation.EnableTransactionManagement
 
 @Configuration
 @EnableAutoConfiguration
 @EnableBatchProcessing
-@EnableJpaRepositories("com.example.ladbebatch.repository")
-@EntityScan("com.example.ladbebatch.model")
+@EnableJpaRepositories("com.example.ladbebatch.team.repository")
+@EntityScan("com.example.ladbebatch.common.model")
 class TestConfig {
 }

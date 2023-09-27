@@ -26,9 +26,10 @@ spring:
     hibernate:
       ddl-auto: create
 open-api:
-  teams: https://api.sportradar.us/nba/trial/v7/en/seasons
+  teams: https://api.sportradar.com/nba/trial/v8/en/league/hierarchy.json
   players: https://api.sportradar.us/nba/trial/v7/en/seasons
   injuries: https://api.sportradar.us/nba/trial/v7/en/league/injuries.json
+  transfer: https://api.sportradar.com/nba/trial/v8/en/league
 
 ---
 
@@ -74,6 +75,6 @@ logging:
               BasicBinder: TRACE
 
 open-api:
-  teams: https://api.sportradar.us/nba/trial/v7/en/seasons
+  teams: https://api.sportradar.com/nba/trial/v8/en/league/hierarchy.json
   players: https://api.sportradar.us/nba/trial/v7/en/seasons
   injuries: https://api.sportradar.us/nba/trial/v7/en/league/injuries.json
